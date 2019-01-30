@@ -9,7 +9,7 @@ module ToyRobot
     end
 
     def report
-      "My current position is: #{@x}, #{@y}, #{@f}"
+      p "My current position is: #{@x}, #{@y}, #{@f}"
     end
 
     def move

@@ -1,14 +1,6 @@
 module ToyRobot
   class Operator
 
-    def self.place(command)
-      command_array = command.split.last.split(',')
-      x = command_array.first.to_i
-      y = command_array[1].to_i
-      f = command_array.last
-      @robot = ToyRobot::Robot.new(x: x, y: y, f: f)
-    end
-
     def self.handle_command(command)
       valid_command = ToyRobot::Command.valid_command(command)
       if valid_command == "REPORT"
@@ -19,9 +11,17 @@ module ToyRobot
         self.left
       elsif valid_command == "RIGHT"
         self.right
-      elsif valid_command.split.first == "PLACE" 
+      elsif valid_command.split.first == "PLACE"
         self.place(valid_command)
       end
+    end
+
+    def self.place(command)
+      command_array = command.split.last.split(',')
+      x = command_array.first.to_i
+      y = command_array[1].to_i
+      f = command_array.last
+      @robot = ToyRobot::Robot.new(x: x, y: y, f: f)
     end
 
     def self.report
