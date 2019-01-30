@@ -1,5 +1,4 @@
 RSpec.describe ToyRobot::Table do
-
   context 'create a valid table' do
     subject { described_class.new(width: 5, height: 5) }
 
@@ -17,5 +16,4 @@ RSpec.describe ToyRobot::Table do
       expect { ToyRobot::Table.new(width: 5) }.to raise_error(ArgumentError)
     end
   end
-
 end
