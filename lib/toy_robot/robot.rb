@@ -1,6 +1,6 @@
 module ToyRobot
   class Robot
-    attr_accessor :x, :y, :f
+    attr_reader :x, :y, :f
 
     def initialize(x: 0, y: 0, f: 'NORTH')
       @x = x

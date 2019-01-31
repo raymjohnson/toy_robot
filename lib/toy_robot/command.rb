@@ -3,19 +3,23 @@ require 'pry'
 module ToyRobot
   class Command
     def self.valid_command(command)
-      if command == "REPORT"
-        "REPORT"
-      elsif command == "MOVE"
-        "MOVE"
-      elsif command == "LEFT"
-        "LEFT"
-      elsif command == "RIGHT"
-        "RIGHT"
+      if %w(REPORT MOVE LEFT RIGHT).include?(command)
+        command
       elsif command.split.first == "PLACE"
-        compass_positions = ["NORTH", "SOUTH", "EAST", "WEST"]
-        coordinates = command.split.last.split(',')
-        return command if coordinates.count == 3 && coordinates.first.to_i.between?(0, 4) && coordinates[1].to_i.between?(0, 4) && compass_positions.include?(coordinates.last)
+
+        x, y, f = command.split.last.split(',')
+        return command if valid_placement?(x, y, f)
       end
+    end
+
+    def self.valid_placement?(x, y, f)
+      return false unless x && y && f
+
+      compass_positions = ["NORTH", "SOUTH", "EAST", "WEST"]
+
+      x.to_i.between?(0, 4) &&
+        y.to_i.between?(0, 4) &&
+        compass_positions.include?(f)
     end
   end
 end
