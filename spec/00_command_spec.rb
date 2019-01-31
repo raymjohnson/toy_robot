@@ -9,11 +9,11 @@ RSpec.describe ToyRobot::Command do
     end
 
     it "invalidates captilize command 'Move'" do
-      expect(ToyRobot::Command.valid_command('Move')).to be nil
+      expect(ToyRobot::Command.valid_command('Move')).to eq('')
     end
 
     it "invalidates lowercase command 'move'" do
-      expect(ToyRobot::Command.valid_command('Move')).to be nil
+      expect(ToyRobot::Command.valid_command('Move')).to eq('')
     end
 
     it "validates initial command 'LEFT'" do
@@ -33,11 +33,11 @@ RSpec.describe ToyRobot::Command do
     end
 
     it "invalidates command without a space 'PLACE0,0,NORTH'" do
-      expect(ToyRobot::Command.valid_command('PLACE0,0,NORTH')).to be nil
+      expect(ToyRobot::Command.valid_command('PLACE0,0,NORTH')).to eq('')
     end
 
     it "invalidates command with only two arguments '0,0'" do
-      expect(ToyRobot::Command.valid_command('0,0')).to be nil
+      expect(ToyRobot::Command.valid_command('0,0')).to eq('')
     end
 
     it "invalidates command with one missing argument 'PLACE 0,0'" do

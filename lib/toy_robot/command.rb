@@ -9,6 +9,8 @@ module ToyRobot
 
         x, y, f = command.split.last.split(',')
         return command if valid_placement?(x, y, f)
+      else
+        ''
       end
     end
 
