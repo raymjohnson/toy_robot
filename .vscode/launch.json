@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Script",
+      "type": "node",
+      "request": "launch",
+      "env": {
+        "TS_NODE_PROJECT": "${workspaceRoot}/tsconfig.json"
+      },
+      "args": ["${relativeFile}"],
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "stopOnEntry": false
+    }
+  ]
+}
